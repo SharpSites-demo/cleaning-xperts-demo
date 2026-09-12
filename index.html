@@ -6,6 +6,7 @@
 <title>Cleaning Xperts — Home, Sofa & Office Cleaning in Delhi NCR</title>
 <meta name="description" content="Full home cleaning, sofa & carpet dry cleaning, kitchen and bathroom deep cleaning across Delhi NCR. 4.5★ from 127 Google reviews. Get a clear quote on WhatsApp.">
 <link rel="canonical" href="https://sharpsites-demo.github.io/cleaning-xperts-demo/">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <meta property="og:title" content="Cleaning Xperts — Home, Sofa & Office Cleaning in Delhi NCR">
 <meta property="og:description" content="Trained teams, safe products, clear quotes on WhatsApp. 4.5★ from 127 Google reviews.">
 <meta property="og:type" content="website">
@@ -370,45 +371,80 @@ footer a{color:#CFEDEF;text-decoration:none;font-weight:600}
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Cleaning Xperts","description":"Home, sofa, carpet, kitchen, bathroom, office and restaurant cleaning plus pest control across Delhi NCR.","telephone":"+918527794247","address":{"@type":"PostalAddress","streetAddress":"Block H, Block U, Shakarpur Khas","addressLocality":"New Delhi","postalCode":"110092","addressRegion":"Delhi","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":28.6293336,"longitude":77.2793258},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"127"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"08:00","closes":"23:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"01:00","closes":"23:30"}],"areaServed":"Delhi NCR"}
 </script>
 
-<script src="canvas-liquid.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script>
-window.addEventListener('DOMContentLoaded',function(){
-  document.getElementById('yr').textContent=new Date().getFullYear();
-
-  /* ---- Canvas UI Liquid (vanilla WebGL build) ---- */
-  var wrap=document.getElementById('liqWrap'),
-      src=document.getElementById('liq-src'),
-      content=document.getElementById('liq-content'),
-      output=document.createElement('canvas');
-  output.setAttribute('aria-hidden','true');
-  output.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none';
-  wrap.appendChild(output);
-  var canInit=window.CanvasUI&&CanvasUI.supportsHtmlInCanvas();
-  if(canInit){
-    wrap.classList.add('liquid-native');
-    src.setAttribute('layoutsubtree','');
-    src.appendChild(content);
-    var inst=CanvasUI.createLiquid({source:src,content:content,output:output},{
-      color:[0.16,0.66,0.76],distortion:0.28,intensity:1.3,blend:4,radius:0.34,curl:2.1,force:1
+/* Load GSAP + Canvas UI after first paint; reveal failsafe keeps content visible without them */
+(function(){
+  function load(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;s.onerror=cb;document.body.appendChild(s)}
+  var start=function(){
+    load('canvas-liquid.js',function(){
+      load('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',function(){
+        if(window.gsap)load('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',initMotion);else initMotion();
+      });
     });
-    if(!inst){wrap.classList.remove('liquid-native');wrap.classList.add('liquid-fallback');}
-  }else{
-    wrap.classList.add('liquid-fallback');
-  }
+  };
+  var initMotion=function(){
+    document.getElementById('yr').textContent=new Date().getFullYear();
 
-  /* ---- GSAP reveals ---- */
-  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(window.gsap&&window.ScrollTrigger&&!reduced){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.reveal').forEach(function(el){
-      gsap.to(el,{opacity:1,y:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 86%'}});
-    });
-  }else{
-    document.querySelectorAll('.reveal').forEach(function(el){el.style.opacity=1;el.style.transform='none';});
-  }
-});
+    /* ---- Canvas UI Liquid (vanilla WebGL build) ---- */
+    var wrap=document.getElementById('liqWrap'),
+        src=document.getElementById('liq-src'),
+        content=document.getElementById('liq-content'),
+        output=document.createElement('canvas');
+    output.setAttribute('aria-hidden','true');
+    output.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none';
+    wrap.appendChild(output);
+    var canInit=window.CanvasUI&&CanvasUI.supportsHtmlInCanvas();
+    if(canInit){
+      wrap.classList.add('liquid-native');
+      src.setAttribute('layoutsubtree','');
+      src.appendChild(content);
+      var inst=CanvasUI.createLiquid({source:src,content:content,output:output},{
+        color:[0.16,0.66,0.76],distortion:0.28,intensity:1.3,blend:4,radius:0.34,curl:2.1,force:1
+      });
+      if(!inst){wrap.classList.remove('liquid-native');wrap.classList.add('liquid-fallback');}
+    }else{
+      wrap.classList.add('liquid-fallback');
+    }
+
+    /* ---- Canvas UI Liquid (vanilla WebGL build) ---- */
+    var wrap=document.getElementById('liqWrap'),
+        src=document.getElementById('liq-src'),
+        content=document.getElementById('liq-content'),
+        output=document.createElement('canvas');
+    output.setAttribute('aria-hidden','true');
+    output.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none';
+    wrap.appendChild(output);
+    var canInit=window.CanvasUI&&CanvasUI.supportsHtmlInCanvas();
+    if(canInit){
+      wrap.classList.add('liquid-native');
+      src.setAttribute('layoutsubtree','');
+      src.appendChild(content);
+      var inst=CanvasUI.createLiquid({source:src,content:content,output:output},{
+        color:[0.16,0.66,0.76],distortion:0.28,intensity:1.3,blend:4,radius:0.34,curl:2.1,force:1
+      });
+      if(!inst){wrap.classList.remove('liquid-native');wrap.classList.add('liquid-fallback');}
+    }else{
+      wrap.classList.add('liquid-fallback');
+    }
+
+    /* ---- GSAP reveals ---- */
+    var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(window.gsap&&window.ScrollTrigger&&!reduced){
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.reveal').forEach(function(el){
+        gsap.to(el,{opacity:1,y:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+      });
+      setTimeout(function(){
+        document.querySelectorAll('.reveal').forEach(function(el){
+          if(el.getBoundingClientRect().top<window.innerHeight){el.style.opacity=1;el.style.transform='none'}
+        });
+      },4000);
+    }else{
+      document.querySelectorAll('.reveal').forEach(function(el){el.style.opacity=1;el.style.transform='none';});
+    }
+  };
+  if('requestIdleCallback' in window){requestIdleCallback(start,{timeout:1800})}else{setTimeout(start,900)}
+})();
 </script>
 </body>
 </html>
