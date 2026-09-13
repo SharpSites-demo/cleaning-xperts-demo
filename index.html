@@ -14,13 +14,14 @@
 <meta property="og:type" content="website">
 <style>
 @font-face{font-family:Fraunces;font-style:normal;font-weight:500 600;font-display:optional;src:url(https://fonts.gstatic.com/s/fraunces/v38/6NUu8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib14c7qv8.woff2) format('woff2')}
-:root{--paper:#FAF7F1;--sand:#F1EAD9;--ink:#20241F;--mut:#5C5A50;--pine:#175247;--pined:#0F3B33;--brass:#B98A2F;--brassd:#8F6A1F;--cream:#F4EFE3;--wa:#25D366;--line:rgba(32,36,31,.16)}
+:root{--paper:#FAF7F1;--sand:#F1EAD9;--ink:#20241F;--mut:#5C5A50;--pine:#175247;--pined:#0F3B33;--brass:#B98A2F;--brassd:#8F6A1F;--cream:#F4EFE3;--wa:#25D366;--brassl:#D9A63C;--line:rgba(32,36,31,.16)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font:400 1rem/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
 svg{display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--pined);outline-offset:3px;border-radius:4px}
+.quote :focus-visible{outline-color:var(--brassl)}
 .skip{position:absolute;left:-999px;top:10px;background:var(--pined);color:var(--cream);padding:12px 18px;border-radius:8px;z-index:99}
 .skip:focus{left:10px}
 .wrap{width:min(1120px,91%);margin:0 auto}
@@ -64,7 +65,7 @@ h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(1.7rem,3.4
 .ledger{max-width:56rem}
 .lrow{display:flex;align-items:baseline;gap:14px;padding:17px 0;border-bottom:1px dotted rgba(32,36,31,.28)}
 .lrow:last-of-type{border-bottom:none}
-.lrow .no{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--brassd);flex:none;width:2.2rem}
+.lrow .no{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.2rem;color:var(--brassd);flex:none;width:2.2rem}
 .lrow .nm{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(1.12rem,2.4vw,1.45rem);letter-spacing:-.01em;flex:none}
 .lrow .dots{flex:1;border-bottom:2px dotted rgba(32,36,31,.3);transform:translateY(-5px);min-width:24px}
 .lrow .ds{flex:none;max-width:15.5rem;font-size:.86rem;color:var(--mut);text-align:right}
@@ -82,17 +83,17 @@ h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(1.7rem,3.4
 .steps{display:grid;gap:0;margin-top:6px}
 .step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
 .step:last-child{border-bottom:none}
-.step .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.9rem;color:var(--brass);flex:none;line-height:1.1}
+.step .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.9rem;color:var(--brassd);flex:none;line-height:1.1}
 .step h3{font-size:1.02rem;margin-bottom:3px}
 .step p{font-size:.9rem;color:var(--mut)}
 /* quote band */
 .quote{background:var(--pined);color:var(--cream);padding:70px 0}
-.quote .kick{color:var(--brass)}
+.quote .kick{color:var(--brassl)}
 .quote h2{color:var(--cream)}
 .quote .sec-head p{color:#C9C4B4}
 .q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
 .q-card{border:1px solid rgba(244,239,227,.22);border-radius:16px;padding:22px;background:rgba(244,239,227,.05)}
-.q-card .qn{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--brass);font-size:1rem}
+.q-card .qn{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--brassl);font-size:1rem}
 .q-card h3{margin:8px 0 4px;font-size:1.03rem;color:var(--cream)}
 .q-card p{font-size:.88rem;color:#C9C4B4}
 .quote .note{font-size:.85rem;color:#C9C4B4;margin-top:14px}
